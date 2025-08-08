@@ -1,10 +1,9 @@
-import streamlit as st
+import streamlit as st  # For the GUI
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-st.title("Grok Stocks - Starter App")
-st.write("Welcome! This is our modular position trading dashboard.")
+from controller.main_controller import run_app
 
-# Modular placeholder function (e.g., for future screening module)
-def get_sample_data():
-    return "Sample data: RSI = 50 (from future Polygon.io fetch)"
-
-st.write(get_sample_data())
+# Call the controller's function
+run_app("LDiiM49r7iMvISQyQ7NlY03Glm7K6v_i")  # Replace with your Polygon.io key
