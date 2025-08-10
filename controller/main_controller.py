@@ -1,10 +1,14 @@
-import streamlit as st  # For writing to GUI if needed
-
-from model.data_fetch import fetch_stock_data  # Import from Model (add if missing)
-from view.dashboard import show_dashboard     # Import from View (add if missing)
+import streamlit as st
+from view.home import show_home_page
+from view.macro_dashboard import show_macro_dashboard
 
 def run_app(api_key):
-    ticker = "AAPL"  # Example; later add user input
-    data = fetch_stock_data(ticker, api_key)  # Calls Model
-    show_dashboard(data)  # Calls View
-    st.write("Controller running successfully!")  # Test message
+    # Initialize page state if not set (best practice: Default to Home)
+    if 'page' not in st.session_state:
+        st.session_state.page = "home"
+
+    # Show page based on state
+    if st.session_state.page == "home":
+        show_home_page()
+    elif st.session_state.page == "macro_dashboard":
+        show_macro_dashboard()
