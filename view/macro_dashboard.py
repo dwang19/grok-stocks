@@ -1,8 +1,7 @@
 import streamlit as st
+from .widgets.treasury_yield_widget import treasury_yield_widget  # Import from subfolder
 
 def show_macro_dashboard():
     st.title("Macro Dashboard")
     st.write("Overview of market environment for position trades.")
-    # Widgets will be added here, e.g.:
-    # from .widgets.treasury_yield_widget import treasury_yield_widget
-    # treasury_yield_widget('your_api_key')
+    treasury_yield_widget('LDiiM49r7iMvISQyQ7NlY03Glm7K6v_i')  # Call the widget with your API key
